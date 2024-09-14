@@ -28,12 +28,10 @@ public class DiamondCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         if (collision.gameObject.CompareTag("Diamond") && attachedDiamond == null)
         {
             AttachDiamond(collision.gameObject);
-        }
-       
+        }   
         else if (collision.gameObject.CompareTag("Area") && attachedDiamond != null)
         {
             DropOffDiamond();
