@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayFabSignUp : MonoBehaviour
 {
@@ -32,7 +33,8 @@ public class PlayFabSignUp : MonoBehaviour
 
    public void LoginSuccess(LoginResult result){
       Debug.Log("Signed In");
-   }
+      SceneManager.LoadSceneAsync(1);
+    }
 
    public void LoginFailure(PlayFabError error){
      Debug.LogError(error.GenerateErrorReport());
