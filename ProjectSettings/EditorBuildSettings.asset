@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/signInMenu.unity
     guid: ce05d454b82e241f08103edd02a2142b
   - enabled: 1
-    path: Assets/Menu/Main Menu.unity
+    path: Assets/Scenes/Main Menu.unity
     guid: ec3d533af9881aa4399a7b08eb66561d
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/SampleScene 1.unity
+    guid: bf9aede8de96d9948934b5015a77ed54
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

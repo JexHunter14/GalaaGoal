@@ -4,59 +4,70 @@ public class DiamondSpawner : MonoBehaviour
 {
     public GameObject diamondPrefab;
     public int numberOfDiamonds = 4;
-    private Camera mainCamera;
-    private float cameraWidth;
-    private float cameraHeight;
+    public float margin = 0.5f;
+    private Bounds combinedBounds;
 
     void Start()
     {
-        mainCamera = Camera.main;
-        CalculateCameraBounds();
+        GameObject[] walls = GameObject.FindGameObjectsWithTag("Walls");
+
+        if (walls.Length == 0)
+        {
+            Debug.LogError("No objects with tag 'Walls' found.");
+            return;
+        }
+
+        CalculateCombinedBounds(walls);
+
         PlaceDiamonds();
     }
 
-    void CalculateCameraBounds()
+    void CalculateCombinedBounds(GameObject[] walls)
     {
-     
-        Vector3 screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
+        Renderer firstWallRenderer = walls[0].GetComponent<Renderer>();
+        combinedBounds = firstWallRenderer.bounds;
 
-        
-        cameraWidth = screenBounds.x * 2;
-        cameraHeight = screenBounds.y * 2;
+        foreach (GameObject wall in walls)
+        {
+            Renderer wallRenderer = wall.GetComponent<Renderer>();
+            if (wallRenderer != null)
+            {
+                combinedBounds.Encapsulate(wallRenderer.bounds);
+            }
+        }
+
+        combinedBounds.Expand(new Vector3(-margin * 2, -margin * 2, 0)); 
     }
 
     void PlaceDiamonds()
     {
-       
         GameObject[] diamonds = GameObject.FindGameObjectsWithTag("Diamond");
 
-       
         if (diamonds.Length < numberOfDiamonds)
         {
             int toInstantiate = numberOfDiamonds - diamonds.Length;
             for (int i = 0; i < toInstantiate; i++)
             {
-                Instantiate(diamondPrefab, GetRandomPosition(), Quaternion.identity);
+                Instantiate(diamondPrefab, GetRandomPositionWithinBounds(), Quaternion.identity);
             }
 
             diamonds = GameObject.FindGameObjectsWithTag("Diamond");
         }
 
-       
         for (int i = 0; i < numberOfDiamonds; i++)
         {
             if (i < diamonds.Length)
             {
-                diamonds[i].transform.position = GetRandomPosition();
+                diamonds[i].transform.position = GetRandomPositionWithinBounds();
             }
         }
     }
 
-    Vector3 GetRandomPosition()
+    Vector3 GetRandomPositionWithinBounds()
     {
-        
-        float x = Random.Range(mainCamera.transform.position.x - cameraWidth / 2, mainCamera.transform.position.x + cameraWidth / 2);
-        float y = Random.Range(mainCamera.transform.position.y - cameraHeight / 2, mainCamera.transform.position.y + cameraHeight / 2);
-        return new Vector3(x, y, 0f); 
+        float x = Random.Range(combinedBounds.min.x, combinedBounds.max.x);
+        float y = Random.Range(combinedBounds.min.y, combinedBounds.max.y);
+
+        return new Vector3(x, y, 0f);
     }
 }
