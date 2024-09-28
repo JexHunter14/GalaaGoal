@@ -4,8 +4,8 @@ public class DiamondSpawner : MonoBehaviour
 {
     public GameObject diamondPrefab;
     public int numberOfDiamonds = 4;
-    public float margin = 0.5f;
     private Bounds combinedBounds;
+    public float margin = 0.5f;
 
     void Start()
     {
@@ -18,7 +18,6 @@ public class DiamondSpawner : MonoBehaviour
         }
 
         CalculateCombinedBounds(walls);
-
         PlaceDiamonds();
     }
 
@@ -36,7 +35,7 @@ public class DiamondSpawner : MonoBehaviour
             }
         }
 
-        combinedBounds.Expand(new Vector3(-margin * 2, -margin * 2, 0)); 
+        combinedBounds.Expand(new Vector3(-margin * 2, -margin * 2, 0));
     }
 
     void PlaceDiamonds()
@@ -63,11 +62,18 @@ public class DiamondSpawner : MonoBehaviour
         }
     }
 
+    public void RespawnDiamond(GameObject diamond)
+    {
+        diamond.GetComponent<Collider2D>().enabled = true;
+        diamond.GetComponent<Rigidbody2D>().isKinematic = true;
+        diamond.transform.SetParent(null); 
+        diamond.transform.position = GetRandomPositionWithinBounds(); 
+    }
+
     Vector3 GetRandomPositionWithinBounds()
     {
         float x = Random.Range(combinedBounds.min.x, combinedBounds.max.x);
         float y = Random.Range(combinedBounds.min.y, combinedBounds.max.y);
-
         return new Vector3(x, y, 0f);
     }
 }
