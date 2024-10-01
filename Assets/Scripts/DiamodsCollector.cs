@@ -67,6 +67,10 @@ public class DiamondCollector : MonoBehaviour
         diamondSpawner.RespawnDiamond(diamond);
     }
 
+    public int GetScore()
+    {
+        return score;
+    }
 
     void UpdateScoreText()
     {

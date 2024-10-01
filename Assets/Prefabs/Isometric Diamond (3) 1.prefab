@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3925923774801668020}
   - component: {fileID: 4908045659330890219}
   m_Layer: 0
-  m_Name: Isometric Diamond (3)
+  m_Name: Isometric Diamond (3) 1
   m_TagString: Diamond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
