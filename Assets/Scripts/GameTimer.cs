@@ -11,6 +11,8 @@ public class GameTimer : MonoBehaviour
     public Text finalScoreText; 
     public DiamondCollector diamondCollector;
 
+    public PlayerStatistics playerStatistics;
+
     public PlayerMovement Movement;
 
     private float countdownTime = 3f;
@@ -46,6 +48,9 @@ public class GameTimer : MonoBehaviour
 
         endGamePanel.SetActive(true);
         finalScoreText.text = "Diamonds Collected: " + diamondCollector.GetScore();
+        playerStatistics.UpdatePlayerStatistics(1, diamondCollector.GetScore())
+
+
     }
 
     void ReturnToMainMenu()
