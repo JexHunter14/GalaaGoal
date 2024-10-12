@@ -12,6 +12,9 @@ public class DiamondCollector : MonoBehaviour
     public Vector3 diamondOffset = new Vector3(0, -1f, 0);
     public DiamondSpawner diamondSpawner;
 
+    public static int player1Score = 0;
+    public static int player2Score = 0;
+
     void Start()
     {
         UpdateScoreText();
@@ -51,6 +54,11 @@ public class DiamondCollector : MonoBehaviour
         score++;
         UpdateScoreText();
 
+        if (gameObject.CompareTag("Player1"))
+            player1Score = score;
+        else if (gameObject.CompareTag("Player2"))
+            player2Score = score;
+
         attachedDiamond.GetComponent<SpriteRenderer>().enabled = false;
         attachedDiamond.GetComponent<Collider2D>().enabled = false;
 
@@ -62,8 +70,7 @@ public class DiamondCollector : MonoBehaviour
     IEnumerator Respawn(GameObject diamond, float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        diamond.GetComponent<SpriteRenderer>().enabled = true;  
+        diamond.GetComponent<SpriteRenderer>().enabled = true;
         diamondSpawner.RespawnDiamond(diamond);
     }
 

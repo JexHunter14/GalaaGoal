@@ -1,28 +1,24 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
-    public Text timerText; 
-    public GameObject endGamePanel; 
-    public Button mainMenuButton; 
-    public Text finalScoreText; 
-    public DiamondCollector diamondCollector;
-
-    public PlayerStatistics playerStatistics;
-
+    public Text timerText;
+    public GameObject endGamePanel;
+    public Button mainMenuButton;
+    public Text winnerText; 
     public PlayerMovement Movement;
 
-    private float countdownTime = 3f;
+    private float countdownTime = 5f;
 
     void Start()
     {
         UpdateTimerText();
-        endGamePanel.SetActive(false); 
+        endGamePanel.SetActive(false);
         StartCoroutine(StartCountdown());
-        mainMenuButton.onClick.AddListener(ReturnToMainMenu); 
+        mainMenuButton.onClick.AddListener(ReturnToMainMenu);
     }
 
     IEnumerator StartCountdown()
@@ -46,11 +42,14 @@ public class GameTimer : MonoBehaviour
     {
         Movement.enabled = false;
 
-        endGamePanel.SetActive(true);
-        finalScoreText.text = "Diamonds Collected: " + diamondCollector.GetScore();
-        playerStatistics.UpdatePlayerStatistics(1, diamondCollector.GetScore())
+        endGamePanel.SetActive(true);      
 
-
+        if (DiamondCollector.player1Score > DiamondCollector.player2Score)
+            winnerText.text = "Winner: Player 1!";
+        else if (DiamondCollector.player2Score < DiamondCollector.player1Score)
+            winnerText.text = "Winner: Player 2!";
+        else
+            winnerText.text = "It's a tie!";
     }
 
     void ReturnToMainMenu()
