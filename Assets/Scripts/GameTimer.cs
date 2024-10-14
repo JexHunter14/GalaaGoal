@@ -11,7 +11,7 @@ public class GameTimer : MonoBehaviour
     public Text winnerText; 
     public PlayerMovement Movement;
 
-    private float countdownTime = 5f;
+    private float countdownTime = 60f;
 
     void Start()
     {
@@ -46,10 +46,13 @@ public class GameTimer : MonoBehaviour
 
         if (DiamondCollector.player1Score > DiamondCollector.player2Score)
             winnerText.text = "Winner: Player 1!";
-        else if (DiamondCollector.player2Score < DiamondCollector.player1Score)
+        else if (DiamondCollector.player2Score > DiamondCollector.player1Score)
             winnerText.text = "Winner: Player 2!";
         else
             winnerText.text = "It's a tie!";
+
+        DiamondCollector.player1Score = 0;
+        DiamondCollector.player2Score = 0;
     }
 
     void ReturnToMainMenu()

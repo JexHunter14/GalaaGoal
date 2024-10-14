@@ -51,13 +51,18 @@ public class DiamondCollector : MonoBehaviour
 
     void DropOffDiamond()
     {
-        score++;
-        UpdateScoreText();
-
         if (gameObject.CompareTag("Player1"))
+        {
+            score++;
             player1Score = score;
+        }
         else if (gameObject.CompareTag("Player2"))
+        {
+            score++;
             player2Score = score;
+        }
+
+        UpdateScoreText();
 
         attachedDiamond.GetComponent<SpriteRenderer>().enabled = false;
         attachedDiamond.GetComponent<Collider2D>().enabled = false;
