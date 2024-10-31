@@ -2,6 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using PlayFab;
+using PlayFab.ClientModels;
+using Unity.VisualScripting;
+using System.Collections.Generic;
+using System.Data;
 
 public class GameTimer : MonoBehaviour
 {
@@ -38,11 +43,70 @@ public class GameTimer : MonoBehaviour
         timerText.text = "Time: " + Mathf.Ceil(countdownTime).ToString() + "s";
     }
 
+    public void IncPlayerNumGames(int gamewins, int diamonds)
+    {
+        PlayFabClientAPI.GetUserData(new GetUserDataRequest(),
+            result =>
+            {
+                int currentGames = 0;
+                int wins = 0;
+                int diamondsCollected = 0;
+
+                if (result.Data != null)
+                {
+                    if (result.Data.ContainsKey("GamesPlayed"))
+                    {
+                        int.TryParse(result.Data["GamesPlayed"].Value, out currentGames);
+                    }
+
+                    if (result.Data.ContainsKey("Wins"))
+                    {
+                        int.TryParse(result.Data["Wins"].Value, out wins);
+                    }
+
+                    if (result.Data.ContainsKey("DiamondsCollected"))
+                    {
+                        int.TryParse(result.Data["DiamondsCollected"].Value, out diamondsCollected);
+                    }
+                }
+                
+                currentGames =+ 1;
+                wins =+ gamewins;
+                diamondsCollected =+ diamonds;
+
+                var updateRequest = new UpdateUserDataRequest
+                {
+                    Data = new Dictionary<string,string>
+                    {
+                        {"GamesPlayed", currentGames.ToString()},
+                        {"Wins", wins.ToString()},
+                        {"DiamondsCollected", diamondsCollected.ToString()}
+                    }
+                };
+                PlayFabClientAPI.UpdateUserData(updateRequest,
+                    updateRequest =>
+                    {
+                        Debug.Log("User Date updated incremented and successfully");
+                    },
+                    error =>
+                    {
+                        Debug.LogError("Error updating User Data: " + error.GenerateErrorReport());
+                    });
+            },
+            Error =>
+            {
+                Debug.LogError("Error retrieving User Data: " + Error.GenerateErrorReport());
+            });
+
+    }
+
     void EndGame()
     {
         Movement.enabled = false;
+        endGamePanel.SetActive(true); 
 
-        endGamePanel.SetActive(true);      
+        int gamewins = 0;
+        int diamonds = DiamondCollector.player1Score + DiamondCollector.player2Score;
 
         if (DiamondCollector.player1Score > DiamondCollector.player2Score)
             winnerText.text = "Winner: Player 1!";
@@ -51,6 +115,9 @@ public class GameTimer : MonoBehaviour
         else
             winnerText.text = "It's a tie!";
 
+        
+        IncPlayerNumGames(gamewins, diamonds);
+        
         DiamondCollector.player1Score = 0;
         DiamondCollector.player2Score = 0;
     }
