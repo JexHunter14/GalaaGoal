@@ -1,0 +1,680 @@
+fileFormatVersion: 2
+guid: ff9e396a604616f469d9749e2ba106d2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5825651976996829154
+    second: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f41f8d7a8144b946a2c1c268d56237c
+      internalID: 1225748765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0198377f4f9c9da42b4cf34a84383b18
+      internalID: 1299923558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e20dc13e09e1394d93f491862f3bd07
+      internalID: 1493466499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ae12887bc41d04f8cde1b04432b0d6
+      internalID: -813883221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 284
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8358c5647ed98b4d8014d555dc5a770
+      internalID: -1967009708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97601ea31d839b429640dcbbb6e4ff7
+      internalID: -1441881002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d217be6a11b727c4d849e66198f8d0ec
+      internalID: -1387364360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5e2231f88d86c4aaf93ed598b7e7dd
+      internalID: -449426272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8bc05301c47fe244a7fa17a7c85e4ef
+      internalID: -436229980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 220
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6e0b10b186d214195ea046b4209a02
+      internalID: -920319097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69655d568c4bcd24789955f41086ea4f
+      internalID: 2064893572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddf175412b90b7f4ca16bc7fb138fd97
+      internalID: 759943132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf13ac3d5ddbbd449d6e2eb5005b832
+      internalID: 1884875279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 156
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024499e4f6a47964fa3a57a8aa23149d
+      internalID: 637081366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_14
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 155
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f3645ee2d1f8c44aeace78f0686c47
+      internalID: -391590019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5ccff65836cf64e99f36a375491cbf
+      internalID: 1277873849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1990a247a65194cb3e191d85360941
+      internalID: -722413203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 115f2ceb85f6061459d327e45d246fcd
+      internalID: 756822673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32dc53d585d5b874e8a08be0f0f923a6
+      internalID: -418124682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 92
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3bfd7a079bf284dae84438af738170
+      internalID: -1471983723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e550cf5021fe2e4187d1af41c9f8ed4
+      internalID: -1849570445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7dfdb36e80f1c64caa71d13a4e20430
+      internalID: 276368187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80aff0f709f83342a6b90cea169bc54
+      internalID: 2136392387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558da229663a0da4d8be2e573e3c56ce
+      internalID: 116508525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 28
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0820692952903354aaecafa17061e701
+      internalID: -600092600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: e27bff9303cfa8c44bf8b4d021d8e88e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_0: 1225748765
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_1: 1299923558
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_10: 2064893572
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_11: 759943132
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_12: 1884875279
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_13: 637081366
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_14: -391590019
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_15: 1277873849
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_16: -722413203
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_17: 756822673
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_18: -418124682
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_19: -1471983723
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_2: 1493466499
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_20: -1849570445
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_21: 276368187
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_22: 2136392387
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_23: 116508525
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_24: -600092600
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_3: -813883221
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_4: -1967009708
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_5: -1441881002
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_6: -1387364360
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_7: -449426272
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_8: -436229980
+      png-clipart-sprite-animation-layers-computer-graphics-sprite-orange-spritesheet-thumbnail_9: -920319097
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
