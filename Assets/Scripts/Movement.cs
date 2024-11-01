@@ -44,4 +44,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = movement;
     }
+
+    public Vector2 GetMovementDirection()
+    {
+        return movement.normalized;
+    }
 }
