@@ -9,4 +9,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(2);
     }
+    public void PlayOnlineGame(){
+      SceneManager.LoadSceneAsync(3);
+    }
 }
