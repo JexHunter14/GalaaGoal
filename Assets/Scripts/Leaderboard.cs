@@ -4,11 +4,15 @@ using PlayFab;
 using PlayFab.ClientModels;
 using System.Linq;
 using System;
+using TMPro;
 
 public class LeaderboardManager : MonoBehaviour
 {
     [SerializeField] private GameObject leaderboardEntryPrefab;
     [SerializeField] private Transform leaderboardContainer;
+
+    [SerializeField]
+    private List<TextMeshProUGUI> names;
 
     void Start()
     {
@@ -57,6 +61,7 @@ public class LeaderboardManager : MonoBehaviour
             entryUI.SetEntry(entry.DisplayName, entry.StatValue, GetPlayerTotalScore(entry.PlayFabId));
         }
         */
+        
     }
 
     private void OnError(PlayFabError error)
