@@ -935,6 +935,32 @@ Transform:
   - {fileID: 585250534}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &278183212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2165069347612736527, guid: 1c639356ce8f45f468cb633df091272b, type: 3}
+  m_PrefabInstance: {fileID: 1631795486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &278183213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278183212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de45add198c570f4b83f5dafbfe92e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRange: 5
+  shootCooldown: 2
+  bulletPrefab: {fileID: 6206099424892588626, guid: 957ab69c5efb1d445ad52780392fa1df, type: 3}
+  firePoint: {fileID: 1592613575}
+--- !u!4 &278183215 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5044577927294273308, guid: 1c639356ce8f45f468cb633df091272b, type: 3}
+  m_PrefabInstance: {fileID: 1631795486}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336651522
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,6 +3577,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1592613574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1592613575}
+  m_Layer: 0
+  m_Name: Spoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1592613575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592613574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 278183215}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1631795486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3617,8 +3674,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5044577927294273308, guid: 1c639356ce8f45f468cb633df091272b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1592613575}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2165069347612736527, guid: 1c639356ce8f45f468cb633df091272b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 278183213}
   m_SourcePrefab: {fileID: 100100000, guid: 1c639356ce8f45f468cb633df091272b, type: 3}
 --- !u!1 &1758748966
 GameObject:
