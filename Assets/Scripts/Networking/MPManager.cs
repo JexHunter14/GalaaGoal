@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using ExitGames.Client.Photon;
+using System.Collections;
 public class MPManager : Photon.Pun.MonoBehaviourPunCallbacks{
 // {
 //   public string GameVersion;
@@ -153,6 +154,13 @@ public class MPManager : Photon.Pun.MonoBehaviourPunCallbacks{
     private string roomName = "MyRoom";
     private bool isSpawnerInstantiated = false;
 
+    private static Vector3[] playerPositions = {
+      new Vector3(-4, 7, 0),
+      new Vector3(3, 6, 0),
+      new Vector3(-4,-7,0),
+      new Vector3(3,-6,0)
+    };
+
     void Start()
     {
         ConnectToMaster();
@@ -204,10 +212,122 @@ public class MPManager : Photon.Pun.MonoBehaviourPunCallbacks{
 
     public override void OnJoinedRoom()
     {
+        // Debug.Log("Successfully joined room: " + PhotonNetwork.CurrentRoom.Name);
+        // Debug.LogError("successfully joined room");
+        // // Instantiate the player object
+        // GameObject Player = PhotonNetwork.Instantiate("Player", Vector2.zero, Quaternion.identity, 0);
+        // GameObject myScoreObject = PhotonNetwork.Instantiate("Score", Vector3.zero, Quaternion.identity, 0);
+        //
+        // scorerules Scorerules = myScoreObject.GetComponent<scorerules>();
+        //
+        // PhotonView Pv = Player.GetComponent<PhotonView>();
+        //
+        // if(Player.GetComponent<DiamondCollectorOnline>() == null){
+        //     Debug.LogError($"DiamondCollector is null !!!!! for instantiation of player with id {Pv.ViewID}");
+        // } else {
+        //   Debug.LogError($"DiamondCollector is not null !!!!! for instantiation of player with id {Pv.ViewID}");
+        //   Scorerules.diamondcollectoronline = Player.GetComponent<DiamondCollectorOnline>();
+        // }
+        //
+        //
+        // DiamondCollectorOnline diamondCollectorOnline = Player.GetComponent<DiamondCollectorOnline>();
+        //
+        //
+        // diamondCollectorOnline.myScoreObject = myScoreObject;
+        // PhotonView ScorePV = myScoreObject.GetComponent<PhotonView>();
+        // ScorePV.TransferOwnership(PhotonNetwork.LocalPlayer);
+        //
+        //
+        // StartCoroutine(AssignScoreObjectDelayed(diamondCollectorOnline, myScoreObject));
+
+
         Debug.Log("Successfully joined room: " + PhotonNetwork.CurrentRoom.Name);
-        Debug.LogError("successfully joined room");
-        // Instantiate the player object
-        PhotonNetwork.Instantiate("Player", Vector2.zero, Quaternion.identity, 0);
+
+
+
+      int numPlayers = PhotonNetwork.CurrentRoom.PlayerCount;
+
+
+    // Instantiate Player and Score objects
+
+    GameObject playerObject = PhotonNetwork.Instantiate("Player", playerPositions[numPlayers-1], Quaternion.identity, 0);
+    GameObject scoreObject = PhotonNetwork.Instantiate("Score", Vector3.zero, Quaternion.identity, 0);
+
+
+    playerObject.tag = "Player";
+    // Get the required components
+    DiamondCollectorOnline diamondCollector = playerObject.GetComponent<DiamondCollectorOnline>();
+    scorerules scoreRules = scoreObject.GetComponent<scorerules>();
+
+    SpriteRenderer playerRender = playerObject.GetComponent<SpriteRenderer>();
+    Text ScoreText = scoreObject.GetComponent<Text>();
+
+    string newname;
+
+
+    GameObject canvasObject = GameObject.Find("Canvas");
+      if (canvasObject == null)
+          {
+            Debug.LogError("Canvas not found in the scene. Ensure a Canvas exists and is named 'Canvas'.");
+            return;
+      } else {
+               Debug.LogError("Canvas found");
+             }
+    GameObject endGamePanel = PhotonNetwork.Instantiate("endGamePanel", Vector3.zero, Quaternion.identity);
+    endGamePanel.transform.SetParent(canvasObject.transform, false);
+    PhotonView PanelPV = endGamePanel.GetComponent<PhotonView>();
+    PanelPV.RPC("setFalse", RpcTarget.AllBuffered);
+
+
+    Color playerCountColor;
+
+    if(numPlayers == 1)
+    {
+      playerCountColor = Color.red;
+      if(PhotonNetwork.IsMasterClient){
+      GameObject timer = PhotonNetwork.Instantiate("Timer", new Vector3(77,190,0), Quaternion.identity);
+      }
+      newname = "Player1";
+
+    }
+    else if (numPlayers == 2)
+    {
+      playerCountColor = Color.blue;
+      newname = "Player2";
+    }
+    else if (numPlayers == 3)
+    {
+      playerCountColor = Color.magenta;
+      newname = "Player3";
+    }
+    else
+    {
+      playerCountColor = Color.green;
+      newname = "Player4";
+    }
+
+    if (diamondCollector == null || scoreRules == null)
+    {
+        Debug.LogError("Required components missing on instantiated objects!");
+        return;
+    }
+    // Set local references
+    diamondCollector.myScoreObject = scoreObject;
+    diamondCollector.name = newname;
+    scoreRules.diamondcollectoronline = diamondCollector;
+
+
+    int Pv =  playerObject.GetPhotonView().ViewID;
+    int Sv = scoreObject.GetPhotonView().ViewID;
+
+    playerRender.color = playerCountColor;
+    ScoreText.color = playerCountColor;
+    // Synchronize references across all clients
+   photonView.RPC("SyncReferences", RpcTarget.AllBuffered, Pv, Sv, numPlayers);
+
+    // Transfer ownership of the score object to the local player
+    PhotonView scorePV = scoreObject.GetComponent<PhotonView>();
+    scorePV.TransferOwnership(PhotonNetwork.LocalPlayer);
 
         // Only the master client will check for the spawner creation
         if (PhotonNetwork.IsMasterClient)
@@ -231,7 +351,70 @@ public class MPManager : Photon.Pun.MonoBehaviourPunCallbacks{
         }
     }
 
-    public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+  [PunRPC]
+  public void SyncReferences(int playerViewID, int scoreViewID, int numPlayers)
+  {
+    string newname;
+      Color playerCountColor;
+
+      if(numPlayers == 1)
+      {
+        playerCountColor = Color.red;
+        newname = "Player1";
+      }
+      else if (numPlayers == 2)
+      {
+        playerCountColor = Color.blue;
+        newname = "Player2";
+      }
+      else if (numPlayers == 3)
+      {
+        playerCountColor = Color.magenta;
+        newname = "Player3";
+      }
+      else
+      {
+        playerCountColor = Color.green;
+        newname = "Player4";
+      }
+
+      PhotonView playerPV = PhotonView.Find(playerViewID);
+      PhotonView scorePV = PhotonView.Find(scoreViewID);
+
+      if (playerPV != null && scorePV != null)
+      {
+          DiamondCollectorOnline diamondCollector = playerPV.GetComponent<DiamondCollectorOnline>();
+          scorerules scoreRules = scorePV.GetComponent<scorerules>();
+          SpriteRenderer playerRender = playerPV.GetComponent<SpriteRenderer>();
+          Text ScoreText = scorePV.GetComponent<Text>();
+          playerPV.gameObject.tag = "Player";
+
+          if (diamondCollector != null && scoreRules != null)
+          {
+              // Synchronize references
+              diamondCollector.myScoreObject = scorePV.gameObject;
+              scoreRules.diamondcollectoronline = diamondCollector;
+              diamondCollector.name = newname;
+
+              playerRender.color = playerCountColor;
+              ScoreText.color = playerCountColor;
+              Debug.Log($"References synchronized: Player {playerViewID}, Score {scoreViewID}");
+          }
+      }
+  }
+
+    private IEnumerator AssignScoreObjectDelayed(DiamondCollectorOnline collector, GameObject scoreObject)
+    {
+        yield return new WaitForEndOfFrame(); // Wait until the end of the current frame
+
+        // Assign the score object
+        collector.myScoreObject = scoreObject;
+
+        // Log success for debugging
+        Debug.Log($"Score object successfully assigned to player {PhotonNetwork.LocalPlayer.ActorNumber}");
+    }
+
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
         // Check if the "SpawnerInstantiated" property was updated
         if (propertiesThatChanged.ContainsKey("SpawnerInstantiated"))
@@ -254,5 +437,37 @@ public class MPManager : Photon.Pun.MonoBehaviourPunCallbacks{
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log("Scene loaded: " + scene.name);
+    }
+
+    public void ReturnToMainMenu(){
+      StartCoroutine(LeaveRoomAndDisconnect());
+    }
+
+    private IEnumerator LeaveRoomAndDisconnect()
+    {
+      if(PhotonNetwork.InRoom){
+        Debug.LogError("Leaving Room started");
+        PhotonNetwork.LeaveRoom();
+        while(PhotonNetwork.InRoom){
+          Debug.LogError("Leaving Room");
+          yield return null;
+        }
+      }
+      if(PhotonNetwork.InLobby){
+        Debug.LogError("Leaving Lobby started");
+        PhotonNetwork.LeaveLobby();
+        while(PhotonNetwork.InLobby){
+          Debug.LogError("Leaving Lobby");
+          yield return null;
+        }
+      }
+      Debug.LogError("Returing to main menu");
+      SceneManager.LoadScene(0);
+    }
+    public override void OnLeftRoom(){
+      Debug.Log("Left Room Successfully");
+    }
+    public override void OnDisconnected(DisconnectCause cause){
+      Debug.Log($"Disconnected from Photon: {cause}");
     }
 }

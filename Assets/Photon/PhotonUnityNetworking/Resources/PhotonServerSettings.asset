@@ -40,6 +40,20 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - AttachDiamond
+  - SyncDiamondPosition
+  - UpdateScoreText
+  - UpdateScoreTextRPC
+  - SetupScoreUI
+  - SyncReferences
+  - setNickname
+  - setFalse
+  - setTrue
+  - setUpTimer
+  - updateTimer
+  - endGame
+  - winner
+  - updatescore
+  - assignExperience
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
