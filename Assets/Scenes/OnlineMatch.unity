@@ -8390,6 +8390,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -826934112280267788, guid: 55781370ef50a4f6e972291f61c25529, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5487419869508636664, guid: 55781370ef50a4f6e972291f61c25529, type: 3}
       propertyPath: m_Name
       value: Isometric Diamond
