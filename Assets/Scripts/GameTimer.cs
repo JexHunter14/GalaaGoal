@@ -16,7 +16,7 @@ public class GameTimer : MonoBehaviour
     public Text winnerText; 
     public PlayerMovement Movement;
 
-    private float countdownTime = 5f;
+    private float countdownTime = 30f;
 
     void Start()
     {

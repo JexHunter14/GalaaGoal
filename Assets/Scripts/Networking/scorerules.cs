@@ -9,10 +9,10 @@ public class scorerules : MonoBehaviourPun
   public DiamondCollectorOnline diamondcollectoronline;
 
   private static Vector3[] scorePositions = {
-    new Vector3(-252, 158, 0),
-    new Vector3(220, 158, 0),
-    new Vector3(-252,-188,0),
-    new Vector3(220,-188,0)
+    new Vector3(-152, 189, 0),
+    new Vector3(-152, -194, 0),
+    new Vector3(212, 202, 0),
+    new Vector3(212,-191, 0)
   };
   private int scoreIndex;
   private bool setUp = false;

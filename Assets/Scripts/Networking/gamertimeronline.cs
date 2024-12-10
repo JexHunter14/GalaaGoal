@@ -95,10 +95,10 @@ public class gamertimeronline : MonoBehaviourPun
         }
       }
       if(winningplayers.Count == 1){
-        winner = $"winner: {winningplayers[0]}";
+        winner = $"Winner: {winningplayers[0]}";
       }
       else if (winningplayers.Count == 2){
-        winner = $"draw";
+        winner = $"Draw";
       }
 
       PhotonView endGamePanelPV = endGamePanel.GetComponent<PhotonView>();
