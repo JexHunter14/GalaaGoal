@@ -54,6 +54,13 @@ MonoBehaviour:
   - winner
   - updatescore
   - assignExperience
+  - setUpHealth
+  - updateHP
+  - damage
+  - setUpBullet
+  - RequestDestroy
+  - RespawnPlayer
+  - updateHPdmg
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

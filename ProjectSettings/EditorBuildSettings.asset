@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/OnlineMatch.unity
     guid: 40573c3141760448288be19b514cf0de
   - enabled: 1
-    path: Assets/Scenes/Leaderboard.unity
-    guid: 64a943831b67b48fb961015739a953d9
+    path: Assets/Scenes/LeaderBoard 1.unity
+    guid: d64c3f6b1d94447a9a37fe08b817ba35
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

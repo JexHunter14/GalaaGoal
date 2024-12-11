@@ -105,19 +105,19 @@ public class DiamondCollectorOnline : MonoBehaviourPun
     public string name;
     public int xp = 0;
     //private GameObject myScoreObject;
-
-
-
+    public GameObject Health;
+    public int health = 100;
+    public int spawnIndex;
 
 
     void Start (){
 
-        Debug.LogError($"started for {PhotonNetwork.LocalPlayer.ActorNumber}");
+        //Debug.LogError($"started for {PhotonNetwork.LocalPlayer.ActorNumber}");
       // myScoreObject = PhotonNetwork.Instantiate("Score", Vector3.zero, Quaternion.identity);
       PhotonNetwork.LocalPlayer.NickName = $"Player{PhotonNetwork.LocalPlayer.ActorNumber}";
+      spawnIndex = PhotonNetwork.LocalPlayer.ActorNumber;
 
    }
-
 
     void Update()
     {
@@ -145,7 +145,7 @@ public class DiamondCollectorOnline : MonoBehaviourPun
             // Make sure we have authority over the diamond
             if (diamondPV != null && !ownership.IsClaimed)
             {
-                Debug.LogError("Claiming onwership of diamond");
+                //Debug.LogError("Claiming onwership of diamond");
                 ownership.IsClaimed = true;
 
                 // Attach the diamond via RPC
@@ -166,7 +166,7 @@ public class DiamondCollectorOnline : MonoBehaviourPun
         PhotonView diamondPV = PhotonView.Find(diamondViewID);
         if (diamondPV != null && diamondPV.Owner == PhotonNetwork.LocalPlayer)
         {
-          Debug.Log("diamond is owned by player, so will attach");
+          //Debug.Log("diamond is owned by player, so will attach");
             attachedDiamond = diamondPV.gameObject;
             attachedDiamond.GetComponent<Collider2D>().enabled = false;
             attachedDiamond.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -193,9 +193,9 @@ public class DiamondCollectorOnline : MonoBehaviourPun
         photonView.RPC("updatescore", RpcTarget.AllBuffered, score);
         PhotonView myScoreObjectPV = myScoreObject.GetComponent<PhotonView>();
         if(myScoreObjectPV == null){
-          Debug.LogError("ScoreObjectPV is null");
+          //Debug.LogError("ScoreObjectPV is null");
         } else {
-          Debug.LogError($"ScoreObjectPV view ID -> {myScoreObjectPV.ViewID}");
+          //Debug.LogError($"ScoreObjectPV view ID -> {myScoreObjectPV.ViewID}");
         }
         myScoreObjectPV.RPC("UpdateScoreTextRPC", RpcTarget.AllBuffered, score);
         if (attachedDiamond != null)
@@ -203,7 +203,7 @@ public class DiamondCollectorOnline : MonoBehaviourPun
             PhotonView diamondPV = attachedDiamond.GetComponent<PhotonView>();
             DiamondLogic ownership = diamondPV.GetComponent<DiamondLogic>();
             if(diamondPV != null && ownership.IsClaimed == true){
-              Debug.LogError("Setting the ownership to unclaimed now that dropeed off");
+              //Debug.LogError("Setting the ownership to unclaimed now that dropeed off");
               ownership.IsClaimed = false;
             }
             attachedDiamond.GetComponent<SpriteRenderer>().enabled = false;
@@ -229,7 +229,7 @@ public class DiamondCollectorOnline : MonoBehaviourPun
             diamondSpawner.RespawnDiamond(diamond);
         }
     }
-  
+
 
     public int GetScore()
     {

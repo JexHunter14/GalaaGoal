@@ -8,24 +8,11 @@ public class gamertimeronline : MonoBehaviourPun
   //private GameObject endGamePanel;
   Transform endGPanel;
   GameObject endGamePanel;
-  private float countdownTime = 10f;
+  private float countdownTime = 20f;
   private bool gamestart = false;
     // Start is called before the first frame update
     void Start()
     {
-      // if(PhotonNetwork.IsMasterClient){
-      // GameObject canvasObject = GameObject.Find("Canvas");
-      //   if (canvasObject == null)
-      //       {
-      //         Debug.LogError("Canvas not found in the scene. Ensure a Canvas exists and is named 'Canvas'.");
-      //         return;
-      //   } else {
-      //            Debug.LogError("Canvas found");
-      //          }
-      // endGamePanel = PhotonNetwork.Instantiate("endGamePanel", Vector3.zero, Quaternion.identity);
-      // endGamePanel.transform.SetParent(canvasObject.transform, false);
-      // PhotonView PanelPV = endGamePanel.GetComponent<PhotonView>();
-      // PanelPV.RPC("setFalse", RpcTarget.AllBuffered);
       photonView.RPC("setUpTimer", RpcTarget.AllBuffered, countdownTime);
       GameObject canvasObject = GameObject.Find("Canvas");
       endGPanel = canvasObject.transform.Find("endGamePanel(Clone)");
@@ -45,10 +32,10 @@ public class gamertimeronline : MonoBehaviourPun
       GameObject canvasObject = GameObject.Find("Canvas");
          if (canvasObject == null)
          {
-             Debug.LogError("Canvas not found in the scene. Ensure a Canvas exists and is named 'Canvas'.");
+             //Debug.LogError("Canvas not found in the scene. Ensure a Canvas exists and is named 'Canvas'.");
              return;
          } else {
-           Debug.LogError("Canvas found");
+           //Debug.LogError("Canvas found");
          }
         gameObject.transform.SetParent(canvasObject.transform, false);
         Text timerText = gameObject.GetComponent<Text>();
