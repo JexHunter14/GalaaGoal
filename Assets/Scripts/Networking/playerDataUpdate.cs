@@ -25,6 +25,7 @@ public class playerDataUpdate : MonoBehaviourPun
       if(gameEnd & !hasUpdated){
         hasUpdated = true;
         updateGamesPlayed();
+        submitScore(gameObject.GetComponent<DiamondCollectorOnline>().score);
         if(isWinner){
           updateXP(1);
         }
@@ -49,7 +50,7 @@ public class playerDataUpdate : MonoBehaviourPun
 
           PlayFabClientAPI.UpdateUserData(updateGamesPlayedRequest,
           Updaterequest => {
-            Debug.LogError("GamesPlayed incremented on database successfully");
+            //Debug.LogError("GamesPlayed incremented on database successfully");
             },
           error => {
             Debug.LogError("GamesPlayed increment Error: " + error.GenerateErrorReport());
@@ -83,7 +84,7 @@ public class playerDataUpdate : MonoBehaviourPun
 
             PlayFabClientAPI.UpdateUserData(UpdateXPrequest,
             Updaterequest => {
-              Debug.LogError("XP incremented on database successfully");
+              //Debug.LogError("XP incremented on database successfully");
               },
             error => {
               Debug.LogError("Xp increment Error: " + error.GenerateErrorReport());
@@ -93,6 +94,24 @@ public class playerDataUpdate : MonoBehaviourPun
             Debug.LogError("Error retrieving User Data: " + Error.GenerateErrorReport());
             });
         }
+    }
+  }
+  public void submitScore(int newScore){
+    if(photonView.IsMine){
+      var request = new UpdatePlayerStatisticsRequest
+        {
+          Statistics = new List<StatisticUpdate>
+          {
+            new StatisticUpdate {StatisticName = "Score", Value = newScore}
+          }
+        };
+      PlayFabClientAPI.UpdatePlayerStatistics(request,
+      result => {
+          //Debug.Log($"Score{newScore} was submitted");
+      },
+      error => {
+          Debug.Log($"Error submitting score: {error.GenerateErrorReport()}");
+      });
     }
   }
 }

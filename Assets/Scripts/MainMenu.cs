@@ -13,8 +13,8 @@ public class MainMenu : MonoBehaviour
     {
       SceneManager.LoadSceneAsync(3);
     }
-    public void PlayLeaderboard()
+    public void LoadLeaderBoard()
     {
-        SceneManager.LoadSceneAsync(4);
+      SceneManager.LoadSceneAsync(4);
     }
 }

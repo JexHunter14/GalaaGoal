@@ -30,13 +30,13 @@ public class AssignNickname : MonoBehaviourPun
               }
 
               photonView.RPC("setNickname", RpcTarget.AllBuffered, nickname);
-              Debug.LogError($"done setting player{PhotonNetwork.CurrentRoom.PlayerCount} nickname to {PhotonNetwork.LocalPlayer.NickName}");
+              //Debug.LogError($"done setting player{PhotonNetwork.CurrentRoom.PlayerCount} nickname to {PhotonNetwork.LocalPlayer.NickName}");
           }
     }
     [PunRPC]
     public void setNickname(string nickname){
       PhotonNetwork.LocalPlayer.NickName = nickname;
-      Debug.LogError($"Set local player nickname to {nickname}");
+      //Debug.LogError($"Set local player nickname to {nickname}");
     }
 
 

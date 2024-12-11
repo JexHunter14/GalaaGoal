@@ -12,12 +12,12 @@ public class DiamondSpawnerOnline : MonoBehaviour
       if (!PhotonNetwork.IsMasterClient){
         return;
       }
-      Debug.LogError("Network diamond Spawner called on master client only");
+      //Debug.LogError("Network diamond Spawner called on master client only");
         GameObject[] walls = GameObject.FindGameObjectsWithTag("Walls");
 
         if (walls.Length == 0)
         {
-            Debug.LogError("No objects with tag 'Walls' found.");
+            //Debug.LogError("No objects with tag 'Walls' found.");
             return;
         }
 
@@ -27,7 +27,7 @@ public class DiamondSpawnerOnline : MonoBehaviour
 
     void CalculateCombinedBounds(GameObject[] walls)
     {
-      Debug.Log("CalculateCombinedBounds for network diamond spwaner is working");
+      //Debug.Log("CalculateCombinedBounds for network diamond spwaner is working");
         Renderer firstWallRenderer = walls[0].GetComponent<Renderer>();
         combinedBounds = firstWallRenderer.bounds;
 
@@ -45,7 +45,7 @@ public class DiamondSpawnerOnline : MonoBehaviour
 
     void PlaceDiamonds()
     {
-      Debug.Log("PlaceDiamonds called");
+      //Debug.Log("PlaceDiamonds called");
         //GameObject[] diamonds = GameObject.FindGameObjectsWithTag("Diamond");
 
         // if (diamonds.Length < numberOfDiamonds)
@@ -53,7 +53,7 @@ public class DiamondSpawnerOnline : MonoBehaviour
         //     int toInstantiate = numberOfDiamonds - diamonds.Length;
             for (int i = 0; i < numberOfDiamonds; i++)
             {
-              Debug.Log("Placing Diamonds");
+              //Debug.Log("Placing Diamonds");
                 GameObject diamond = PhotonNetwork.InstantiateRoomObject("DiamondPrefab/Diamond", GetRandomPositionWithinBounds(), Quaternion.identity);
                 DiamondLogic ownership = diamond.GetComponent<DiamondLogic>();
                 if (ownership != null){
@@ -62,9 +62,9 @@ public class DiamondSpawnerOnline : MonoBehaviour
 
                 PhotonView diamondPV = diamond.GetComponent<PhotonView>();
                 if(diamondPV != null){
-                  Debug.LogError($"Diamond {i + 1} PhotonView ID: {diamondPV.ViewID}");
+                  //Debug.LogError($"Diamond {i + 1} PhotonView ID: {diamondPV.ViewID}");
                 } else {
-                  Debug.LogError($"Diamond {i +1} does not have a PhotonView component");
+                  //Debug.LogError($"Diamond {i +1} does not have a PhotonView component");
                 }
             }
 
@@ -85,7 +85,7 @@ public class DiamondSpawnerOnline : MonoBehaviour
         diamondPrefab.GetComponent<Collider2D>().enabled = true;
         diamondPrefab.GetComponent<Rigidbody2D>().isKinematic = true;
         diamondPrefab.transform.SetParent(null);
-        Debug.Log($"Respawning diamond within the bounds :Min {combinedBounds.min}, Max {combinedBounds.max}");
+        //Debug.Log($"Respawning diamond within the bounds :Min {combinedBounds.min}, Max {combinedBounds.max}");
         diamondPrefab.transform.position = GetRandomPositionWithinBounds();
         Vector3 newPosition = GetRandomPositionWithinBounds();
        diamondPrefab.transform.position = newPosition;
@@ -97,7 +97,7 @@ public class DiamondSpawnerOnline : MonoBehaviour
        }
        else
        {
-           Debug.LogError("Problems with respawning diamond: PhotonView not found.");
+           //Debug.LogError("Problems with respawning diamond: PhotonView not found.");
        }
    }
 

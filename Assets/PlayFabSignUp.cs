@@ -81,12 +81,28 @@ public class PlayFabSignUp : MonoBehaviour
 
     void OnRegisterRequestSuccess(RegisterPlayFabUserResult result)
     {
-        Debug.Log("User Registered");
+        //Debug.Log("User Registered");
+        var displayNameRequest = new UpdateUserTitleDisplayNameRequest
+        {
+          DisplayName = username.text
+        };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(displayNameRequest, OnDisplayNameUpdateSuccess, OnDisplayNameUpdateFailure);
+        SignUpTab();
+
+    }
+
+    void OnDisplayNameUpdateSuccess(UpdateUserTitleDisplayNameResult result)
+    {
+      //Debug.Log($"Display name update to {result.DisplayName}");
+    }
+    void OnDisplayNameUpdateFailure(PlayFabError error)
+    {
+      Debug.Log($"Display name error: {error.GenerateErrorReport()}");
     }
 
     void OnRegisterFailure(PlayFabError error)
     {
-        Debug.Log($"User Registration Failed: {error.ErrorMessage}");
+        //Debug.Log($"User Registration Failed: {error.ErrorMessage}");
     }
 
     public void Login()
@@ -97,7 +113,7 @@ public class PlayFabSignUp : MonoBehaviour
 
     public void LoginSuccess(LoginResult result)
     {
-        Debug.Log("Signed In");
+      //Debug.Log("Signed In");
 
         PlayFabClientAPI.GetAccountInfo(new GetAccountInfoRequest(), OnGetAccountInfoSuccess, OnGetAccountInfoFailure);
 
@@ -109,7 +125,7 @@ public class PlayFabSignUp : MonoBehaviour
         PlayerPrefs.SetString("PlayerUsername", username);
         PlayerPrefs.Save();
 
-        Debug.Log($"Player Username: {username}");
+        //Debug.Log($"Player Username: {username}");
 
         PhotonNetwork.NickName = username;
 
@@ -118,12 +134,12 @@ public class PlayFabSignUp : MonoBehaviour
 
     void OnGetAccountInfoFailure(PlayFabError error)
     {
-        Debug.LogError($"Failed to retrieve account info: {error.ErrorMessage}");
+        //Debug.LogError($"Failed to retrieve account info: {error.ErrorMessage}");
     }
 
     public void LoginFailure(PlayFabError error)
     {
-        Debug.LogError(error.GenerateErrorReport());
+        //Debug.LogError(error.GenerateErrorReport());
     }
 
     public void SignUpTab()

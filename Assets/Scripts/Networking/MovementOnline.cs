@@ -10,6 +10,7 @@ public class Movement : MonoBehaviourPunCallbacks
   private Rigidbody2D rb2D;
   public float speed = 5f;
   private PhotonView PV;
+  private float currentRotation;
     // Start is called before the first frame update
     private void Start()
     {
@@ -34,5 +35,14 @@ public class Movement : MonoBehaviourPunCallbacks
       Vector2 movement = new Vector2(moveX, moveY).normalized;
 
       rb2D.velocity = movement * speed;
+
+      // Rotation logic
+        if (movement != Vector2.zero) // Rotate only when there's input
+        {
+            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+            currentRotation = angle - 90;
+        }
+
+          transform.rotation = Quaternion.Euler(0, 0, currentRotation);
     }
 }
