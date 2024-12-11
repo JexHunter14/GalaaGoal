@@ -34,7 +34,16 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if(collider.CompareTag("Enemy") && bulletTag == "PlayerBullet")
+        if (collider.CompareTag("Player2"))
+        {
+            PlayerHealth2 playerHealth = collider.GetComponent<PlayerHealth2>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(10);
+            }
+        }
+
+        if (collider.CompareTag("Enemy") && bulletTag == "PlayerBullet")
         {
             EnemyDamage enemyH = collider.GetComponent<EnemyDamage>();
             if(enemyH != null)

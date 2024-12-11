@@ -8,6 +8,18 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+
+  - component: {fileID: 5086379762007713298}
+  - component: {fileID: 1676775361098818755}
+  - component: {fileID: 7175571779978460882}
+  - component: {fileID: 4161263115747418327}
+  - component: {fileID: 7366382511887822198}
+  - component: {fileID: -4571413163089289274}
+  - component: {fileID: 5424175860161543404}
+  - component: {fileID: -6183972027590266074}
+  - component: {fileID: -589913599239192754}
+  - component: {fileID: -5562834401978267080}
+  - component: {fileID: -1219436279877064744}
   - component: {fileID: 8061280808318068915}
   m_Layer: 0
   m_Name: ShootingPoint
