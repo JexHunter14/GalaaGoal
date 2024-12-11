@@ -37,17 +37,17 @@ public class scorerules : MonoBehaviourPun
       GameObject canvasObject = GameObject.Find("Canvas");
          if (canvasObject == null)
          {
-             Debug.LogError("Canvas not found in the scene. Ensure a Canvas exists and is named 'Canvas'.");
+             //Debug.LogError("Canvas not found in the scene. Ensure a Canvas exists and is named 'Canvas'.");
              return;
          } else {
-           Debug.LogError("Canvas found");
+           //Debug.LogError("Canvas found");
          }
 
       if(diamondcollectoronline == null){
-        Debug.LogError("diamondcollectoronline is null ?");
+        //Debug.LogError("diamondcollectoronline is null ?");
       }
       if(diamondcollectoronline.positionIndex() == null){
-        Debug.LogError("positionindex is null ?");
+        //Debug.LogError("positionindex is null ?");
       }
       scoreIndex = diamondcollectoronline.positionIndex();
       transform.SetParent(canvasObject.transform, false);
