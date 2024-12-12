@@ -71,7 +71,14 @@ public class Leaderboard1 : MonoBehaviour
            GameObject newEntry = Instantiate(playerEntry, content);
            Text[] textFields = newEntry.GetComponentsInChildren<Text>();
            textFields[0].text = $"Rank: {entry.Position + 1}";
-           textFields[1].text = $"Player: {entry.DisplayName}";
+            if (entry.DisplayName == null)
+            {
+                textFields[1].text = $"Player: Guest";
+            }
+            else
+            {
+                textFields[1].text = $"Player: {entry.DisplayName}";
+            }
            textFields[2].text = $"Score: {entry.StatValue}";
        }
    }
